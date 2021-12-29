@@ -66,10 +66,10 @@ function apply_postinstall_config() {
     sed -i "s/MultiHitZombies = .*/MultiHitZombies = $WEAPON_MULTI_HIT,/g" "$SERVER_RULES_CONFIG"
 	
 	# Set the Mod names (delimited by ; | EG: ClaimNonResidential;MoreDescriptionForTraits)
-	sed -i "s/Mods = .*/Mods = $MOD_NAMES,/g" "$SERVER_CONFIG"
+	sed -i "s/Mods=.*/Mods=$MOD_NAMES/g" "$SERVER_CONFIG"
 	
 	# Set the Mod Workshop IDs (delimited by ; | EG: 2160432461;2685168362)
-	sed -i "s/WorkshopItems = .*/WorkshopItems = $MOD_WORKSHOP_IDS,/g" "$SERVER_CONFIG"
+	sed -i "s/WorkshopItems=.*/WorkshopItems=$MOD_WORKSHOP_IDS/g" "$SERVER_CONFIG"
 
     printf "\n### Post Install Configuration applied.\n"
 }
@@ -185,7 +185,7 @@ function set_variables() {
 	
 	# Set the Mods to use from workshop
 	MOD_NAMES = ${MOD_NAMES:-""}
-	MOD_WORKSHOP_IDS = ${MOD_WORKSHOP_IDS:-"true"}
+	MOD_WORKSHOP_IDS = ${MOD_WORKSHOP_IDS:-""}
 
     SERVER_CONFIG="$CONFIG_DIR/Server/$SERVER_NAME.ini"
     SERVER_VM_CONFIG="$BASE_GAME_DIR/ProjectZomboid64.json"
