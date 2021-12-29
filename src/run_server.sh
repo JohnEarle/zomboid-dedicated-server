@@ -118,7 +118,9 @@ function set_variables() {
     else
         BIND_IP="$BIND_IP"
     fi
-
+	
+	# Set PVP variable
+	SERVER_PVP=${SERVER_PVP:-"false"}
     # Set the game version variable
     GAME_VERSION=${GAME_VERSION:-"public"}
 
@@ -198,4 +200,5 @@ update_folder_permissions
 apply_preinstall_config
 update_server
 apply_postinstall_config
+update_server
 start_server
