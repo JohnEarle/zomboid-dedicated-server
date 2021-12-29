@@ -108,7 +108,7 @@ function set_variables() {
     printf "\n### Setting variables...\n"
 
     BASE_GAME_DIR="/home/steam/ZomboidDedicatedServer"
-    CONFIG_DIR="/root/Zomboid/"
+    CONFIG_DIR="/root/Zomboid"
 
     # Set the IP address variable
     # NOTE: Project Zomboid cannot handle the IN_ANY address
