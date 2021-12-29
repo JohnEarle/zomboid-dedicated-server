@@ -108,7 +108,7 @@ function set_variables() {
     printf "\n### Setting variables...\n"
 
     BASE_GAME_DIR="/home/steam/ZomboidDedicatedServer"
-    CONFIG_DIR="/home/steam/Zomboid/"
+    CONFIG_DIR="/home/Zomboid/"
 
     # Set the IP address variable
     # NOTE: Project Zomboid cannot handle the IN_ANY address
@@ -182,6 +182,10 @@ function set_variables() {
 
     # Set the Weapon Multi-Hit variable
     WEAPON_MULTI_HIT=${WEAPON_MULTI_HIT:-"true"}
+	
+	# Set the Mods to use from workshop
+	MOD_NAMES = ${MOD_NAMES:-""}
+	MOD_WORKSHOP_IDS = ${MOD_WORKSHOP_IDS:-"true"}
 
     SERVER_CONFIG="$CONFIG_DIR/Server/$SERVER_NAME.ini"
     SERVER_VM_CONFIG="$BASE_GAME_DIR/ProjectZomboid64.json"
