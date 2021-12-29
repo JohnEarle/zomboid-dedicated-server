@@ -64,6 +64,12 @@ function apply_postinstall_config() {
 
     # Set the Weapon Multi Hit
     sed -i "s/MultiHitZombies = .*/MultiHitZombies = $WEAPON_MULTI_HIT,/g" "$SERVER_RULES_CONFIG"
+	
+	# Set the Mod names (delimited by ; | EG: ClaimNonResidential;MoreDescriptionForTraits)
+	sed -i "s/Mods = .*/Mods = $MOD_NAMES,/g" "$SERVER_CONFIG"
+	
+	# Set the Mod Workshop IDs (delimited by ; | EG: 2160432461;2685168362)
+	sed -i "s/WorkshopItems = .*/WorkshopItems = $MOD_WORKSHOP_IDS,/g" "$SERVER_CONFIG"
 
     printf "\n### Post Install Configuration applied.\n"
 }
