@@ -18,6 +18,7 @@ function start_server() {
         -ip "$BIND_IP" -port "$QUERY_PORT" \
         -servername "$SERVER_NAME" \
         -steamvac "$STEAM_VAC" "$USE_STEAM"
+		-mods "$"
 }
 
 function apply_postinstall_config() {
@@ -102,7 +103,14 @@ function update_folder_permissions() {
 
     printf "\n### Folder Permissions updated.\n"
 }
-
+function first_start_config_ops
+{
+	if[! -d "/root/Zomboid"]
+	{
+		printf "\n### First Boot Detected - Burst Startup to create config files.\n"
+		start_server & sleep 15; kill $
+	}
+}
 # Set variables for use in the script
 function set_variables() {
     printf "\n### Setting variables...\n"
@@ -199,6 +207,8 @@ set_variables
 update_folder_permissions
 apply_preinstall_config
 update_server
+first_start_config_ops
 apply_postinstall_config
 update_server
 start_server
+	
