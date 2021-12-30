@@ -23,7 +23,12 @@ function start_server_initial() {
 # Start the Server
 function start_server() {
     printf "\n### Starting Project Zomboid Server...\n"
-    "$BASE_GAME_DIR"/start-server.sh
+    "$BASE_GAME_DIR"/start-server.sh \
+        -adminusername "$ADMIN_USERNAME" \
+        -adminpassword "$ADMIN_PASSWORD" \
+        -ip "$BIND_IP" -port "$QUERY_PORT" \
+        -servername "$SERVER_NAME" \
+        -steamvac "$STEAM_VAC" "$USE_STEAM"
 }
 function apply_postinstall_config() {
     printf "\n### Applying Post Install Configuration...\n"
