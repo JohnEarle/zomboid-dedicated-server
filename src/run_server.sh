@@ -116,7 +116,7 @@ function first_start_config_ops
 		start_server & sleep 30; apply_postinstall_config
 		mkdir /root/Zomboid/Workshop
 		chown -R "$(id -u):$(id -g)" /root/Zomboid/Workshop
-		reboot
+		reboot --force
 	}
 }
 # Set variables for use in the script
