@@ -113,8 +113,7 @@ function first_start_config_ops
 	if[! -d "/root/Zomboid"]
 	{
 		printf "\n### First Boot Detected - Burst Startup to create config files.\n"
-		start_server & sleep 30; kill $
-	}
+		start_server & sleep 30; reboot
 }
 # Set variables for use in the script
 function set_variables() {
