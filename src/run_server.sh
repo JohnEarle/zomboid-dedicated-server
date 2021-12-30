@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #######################################################################
 #   Author: Renegade-Master
+#	Contributor: JohnEarle
 #   Description: Install, update, and start a Dedicated Project Zomboid
 #       instance.
 #######################################################################
@@ -11,14 +12,14 @@ set +x
 # Start the Server
 function start_server() {
     printf "\n### Starting Project Zomboid Server...\n"
-
     "$BASE_GAME_DIR"/start-server.sh \
         -adminusername "$ADMIN_USERNAME" \
         -adminpassword "$ADMIN_PASSWORD" \
         -ip "$BIND_IP" -port "$QUERY_PORT" \
         -servername "$SERVER_NAME" \
-        -steamvac "$STEAM_VAC" "$USE_STEAM"
-		-mods "$"
+        -steamvac "$STEAM_VAC" "$USE_STEAM" \
+		-mods "$MOD_NAMES" \
+		-WorkshopItems "$MOD_WORKSHOP_IDS"
 }
 
 function apply_postinstall_config() {
