@@ -119,7 +119,7 @@ function update_folder_permissions() {
 }
 
 # start the server to generate configuration file - Prep for post install parameters [15 second start then kill]
-function first_start_config_ops
+function first_start_config_ops()
 {
 	if[! -d "/root/Zomboid"]
 	{
