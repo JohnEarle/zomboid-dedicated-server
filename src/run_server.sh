@@ -24,7 +24,7 @@ function start_server_initial() {
 function start_server() {
     printf "\n### Starting Project Zomboid Server...\n"
     "$BASE_GAME_DIR"/start-server.sh
-
+}
 function apply_postinstall_config() {
     printf "\n### Applying Post Install Configuration...\n"
 	
