@@ -103,6 +103,8 @@ function update_folder_permissions() {
 
     printf "\n### Folder Permissions updated.\n"
 }
+
+# start the server to generate configuration file - Prep for post install parameters
 function first_start_config_ops
 {
 	if[! -d "/root/Zomboid"]
