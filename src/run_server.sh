@@ -23,6 +23,9 @@ function start_server() {
 
 function apply_postinstall_config() {
     printf "\n### Applying Post Install Configuration...\n"
+	
+	# Set the Server Name
+    sed -i "s/PVP=.*/PVP=$SERVER_PVP/g" "$SERVER_CONFIG"
 
     # Set the Server Name
     sed -i "s/PublicName=.*/PublicName=$SERVER_NAME/g" "$SERVER_CONFIG"
@@ -104,13 +107,13 @@ function update_folder_permissions() {
     printf "\n### Folder Permissions updated.\n"
 }
 
-# start the server to generate configuration file - Prep for post install parameters
+# start the server to generate configuration file - Prep for post install parameters [30 second start then kill]
 function first_start_config_ops
 {
 	if[! -d "/root/Zomboid"]
 	{
 		printf "\n### First Boot Detected - Burst Startup to create config files.\n"
-		start_server & sleep 15; kill $
+		start_server & sleep 30; kill $
 	}
 }
 # Set variables for use in the script
