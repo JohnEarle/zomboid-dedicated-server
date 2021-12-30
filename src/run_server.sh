@@ -114,7 +114,7 @@ function update_folder_permissions() {
 # start the server to generate configuration file - Prep for post install parameters [30 second start then kill]
 function first_start_config_ops()
 {
-	if[! -d "/root/Zomboid"]
+	if[! -d "/root/Zomboid/"]
 	{
 		printf "\n### First Boot Detected - Burst Startup to create config files.\n"
 		start_server_initial
