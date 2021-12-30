@@ -12,7 +12,7 @@ set +x
 function start_server_initial() {
 	clear
     printf "\n### Starting Project Zomboid Server...\n"
-    timeout 15 "$BASE_GAME_DIR"/start-server.sh \
+    timeout 30 "$BASE_GAME_DIR"/start-server.sh \
         -adminusername "$ADMIN_USERNAME" \
         -adminpassword "$ADMIN_PASSWORD" \
         -ip "$BIND_IP" -port "$QUERY_PORT" \
@@ -23,13 +23,7 @@ function start_server_initial() {
 # Start the Server
 function start_server() {
     printf "\n### Starting Project Zomboid Server...\n"
-    "$BASE_GAME_DIR"/start-server.sh \
-        -adminusername "$ADMIN_USERNAME" \
-        -adminpassword "$ADMIN_PASSWORD" \
-        -ip "$BIND_IP" -port "$QUERY_PORT" \
-        -servername "$SERVER_NAME" \
-        -steamvac "$STEAM_VAC" "$USE_STEAM"
-}
+    "$BASE_GAME_DIR"/start-server.sh
 
 function apply_postinstall_config() {
     printf "\n### Applying Post Install Configuration...\n"
@@ -125,8 +119,6 @@ function first_start_config_ops()
 		printf "\n### First Boot Detected - Burst Startup to create config files.\n"
 		start_server_initial
 		apply_postinstall_config
-		mkdir /root/Zomboid/Workshop
-		chown -R "$(id -u):$(id -g)" /root/Zomboid/Workshop
 		reboot --force
 	}
 }
