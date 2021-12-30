@@ -17,7 +17,7 @@ function start_server() {
         -adminpassword "$ADMIN_PASSWORD" \
         -ip "$BIND_IP" -port "$QUERY_PORT" \
         -servername "$SERVER_NAME" \
-        -steamvac "$STEAM_VAC" "$USE_STEAM" \
+        -steamvac "$STEAM_VAC" "$USE_STEAM"
 }
 
 function apply_postinstall_config() {
@@ -107,13 +107,12 @@ function update_folder_permissions() {
 }
 
 # start the server to generate configuration file - Prep for post install parameters [30 second start then kill]
-function first_start_config_ops()
+function first_start_config_ops
 {
 	if[! -d "/root/Zomboid"]
 	{
-		clear
 		printf "\n### First Boot Detected - Burst Startup to create config files.\n"
-		timeout 30 start_server 
+		timeout 15 start_server 
 		apply_postinstall_config
 		mkdir /root/Zomboid/Workshop
 		chown -R "$(id -u):$(id -g)" /root/Zomboid/Workshop
