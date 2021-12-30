@@ -223,6 +223,5 @@ update_folder_permissions
 apply_preinstall_config
 update_server
 first_start_config_ops
-apply_postinstall_config
 start_server
 	
