@@ -114,6 +114,8 @@ function first_start_config_ops
 	{
 		printf "\n### First Boot Detected - Burst Startup to create config files.\n"
 		start_server & sleep 30; apply_postinstall_config
+		mkdir /root/Zomboid/Workshop
+		chown -R "$(id -u):$(id -g)" /root/Zomboid/Workshop
 		reboot
 	}
 }
