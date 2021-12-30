@@ -8,6 +8,17 @@
 
 # Set to `-x` for Debug logging
 set +x
+# Start the Server for the first time to generate configuration files for editing
+function start_server_initial() {
+	clear
+    printf "\n### Starting Project Zomboid Server...\n"
+    timeout 15 "$BASE_GAME_DIR"/start-server.sh \
+        -adminusername "$ADMIN_USERNAME" \
+        -adminpassword "$ADMIN_PASSWORD" \
+        -ip "$BIND_IP" -port "$QUERY_PORT" \
+        -servername "$SERVER_NAME" \
+        -steamvac "$STEAM_VAC" "$USE_STEAM"
+}
 
 # Start the Server
 function start_server() {
@@ -107,12 +118,12 @@ function update_folder_permissions() {
 }
 
 # start the server to generate configuration file - Prep for post install parameters [30 second start then kill]
-function first_start_config_ops
+function first_start_config_ops()
 {
 	if[! -d "/root/Zomboid"]
 	{
 		printf "\n### First Boot Detected - Burst Startup to create config files.\n"
-		timeout 15 start_server 
+		start_server_initial
 		apply_postinstall_config
 		mkdir /root/Zomboid/Workshop
 		chown -R "$(id -u):$(id -g)" /root/Zomboid/Workshop
