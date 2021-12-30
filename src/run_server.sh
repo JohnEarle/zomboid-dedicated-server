@@ -119,7 +119,6 @@ function first_start_config_ops()
 		printf "\n### First Boot Detected - Burst Startup to create config files.\n"
 		start_server_initial
 		apply_postinstall_config
-		reboot --force
 	}
 }
 # Set variables for use in the script
